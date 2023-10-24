@@ -6,9 +6,13 @@ using namespace std;
 
 class Secret {
 public:
-  static void cannabis();
-  static void explosives();
-  static void secret();
+ //functions start here
+  bool check(string ln);
+  void exec();
+  //variables start here
+  string msg;
+  string trigger;
+
 };
 
 #endif

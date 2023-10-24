@@ -11,7 +11,20 @@ int Waffle::set() {
 void Waffle::run() {
   cout << "is your waffle syrupy enough? \n";
   cout << "insert a number!";
-  cin >> waffle;
+
+  string ln;
+  getline(cin, ln);
+
+  for(int i=0;i < secretscount;i++){
+      Secret secret=secrets[i];
+      if(secret.check(ln)){
+        secret.exec();
+        return ;
+      }
+  }
+
+  waffle = stoi(ln);
+
 
   if (cin.fail()) {
     cout << "your a dick \n";
@@ -21,17 +34,8 @@ void Waffle::run() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     waffle = 1000;
   }
-  if (waffle == 420) {
-    Secret::secret();
-  }
-  else if(waffle==421){
-      Secret::cannabis();
-  }
-  else if (waffle==1000){
-      Secret::explosives();
-  }
-
-  else if (syrup >= waffle) {
+ 
+    if (syrup >= waffle) {
     cout << set() << endl;
 
   } else if (waffle >= overload) {
@@ -40,3 +44,5 @@ void Waffle::run() {
     cout << "its not syrupy enough" << endl;
   }
 }
+
+Secret Waffle::secrets[secretscount];

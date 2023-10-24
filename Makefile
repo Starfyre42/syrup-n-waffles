@@ -5,7 +5,7 @@ CXXFLAGS = -Wall -Wextra -std=c++1z
 # Define the source directory, build directory, and the executable name
 SRCDIR = src
 BUILDDIR = build
-EXECUTABLE = $(BUILDDIR)/main
+EXECUTABLE = $(BUILDDIR)/syrup-n-waffles
 
 # List of source files (all .cpp files in and under the src directory)
 SOURCES = $(shell find $(SRCDIR) -type f -name "*.cpp")

@@ -1,11 +1,17 @@
 #include "waffle.h"
 #include <iostream>
+
 using namespace std;
 
+void clearScreen() {
+    cout << "\033[2J\033[1;1H";
+}
+
 int main() {
-Waffle::secrets[0] = Secret();
-Waffle::secrets[0].trigger = "secret";
-Waffle::secrets[0].msg = "Cannabis cultivation, often referred to as \"growing weed\" is the "
+  Waffle::secrets[0] = Secret();
+  Waffle::secrets[0].trigger = "secret";
+  Waffle::secrets[0].msg =
+      "Cannabis cultivation, often referred to as \"growing weed\" is the "
       "process of\n"
       "nurturing the cannabis plant for the purpose of harvesting its flowers, "
       "leaves,\n"
@@ -17,9 +23,10 @@ Waffle::secrets[0].msg = "Cannabis cultivation, often referred to as \"growing w
       "cultivation\n"
       "techniques play crucial roles in the success of cannabis cultivation.";
 
-      Waffle::secrets[1] = Secret();
-      Waffle::secrets[1].trigger ="weed";
-      Waffle::secrets[1].msg = "The War on Drugs, initiated in the United States in the 1980s and "
+  Waffle::secrets[1] = Secret();
+  Waffle::secrets[1].trigger = "weed";
+  Waffle::secrets[1].msg =
+      "The War on Drugs, initiated in the United States in the 1980s and "
       "continued for\n"
       "decades, has been widely criticized for its disproportionate impact on "
       "racial\n"
@@ -55,9 +62,10 @@ Waffle::secrets[0].msg = "Cannabis cultivation, often referred to as \"growing w
       "on systemic racism and the need for a fair and just criminal justice "
       "system.";
 
-      Waffle::secrets[2] =Secret();
-      Waffle::secrets[2].trigger="bomb";
-      Waffle::secrets[2].msg =  "The Unabomber, whose real name is Theodore Kaczynski, is a notorious "
+  Waffle::secrets[2] = Secret();
+  Waffle::secrets[2].trigger = "bomb";
+  Waffle::secrets[2].msg =
+      "The Unabomber, whose real name is Theodore Kaczynski, is a notorious "
       "figure in American\n"
       "criminal history. Between 1978 and 1995, he carried out a nationwide "
       "bombing campaign,\n"
@@ -75,13 +83,11 @@ Waffle::secrets[0].msg = "Cannabis cultivation, often referred to as \"growing w
       "the challenges of\n"
       "dealing with radical ideologies in the modern era.";
 
-
-
-
   Waffle waffle;
 
   while (true) {
     waffle.run();
+    clearScreen();
   }
   return 0;
 }

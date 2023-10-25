@@ -1,7 +1,13 @@
 #include "waffle.h"
-#include <string>
 #include "secret.h"
+#include <string>
 
+void pause() {
+  cout << "Press enter twice to continue...";
+  cin.get();
+  cin.clear();
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
 
 int Waffle::set() {
   waffle = 42;
@@ -15,16 +21,16 @@ void Waffle::run() {
   string ln;
   getline(cin, ln);
 
-  for(int i=0;i < secretscount;i++){
-      Secret secret=secrets[i];
-      if(secret.check(ln)){
-        secret.exec();
-        return ;
-      }
+  for (int i = 0; i < secretscount; i++) {
+    Secret secret = secrets[i];
+    if (secret.check(ln)) {
+      secret.exec();
+      pause();
+      return;
+    }
   }
 
   waffle = stoi(ln);
-
 
   if (cin.fail()) {
     cout << "your a dick \n";
@@ -34,8 +40,8 @@ void Waffle::run() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     waffle = 1000;
   }
- 
-    if (syrup >= waffle) {
+
+  if (syrup >= waffle) {
     cout << set() << endl;
 
   } else if (waffle >= overload) {
@@ -43,6 +49,8 @@ void Waffle::run() {
   } else {
     cout << "its not syrupy enough" << endl;
   }
+
+  pause();
 }
 
 Secret Waffle::secrets[secretscount];
